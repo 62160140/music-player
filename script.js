@@ -30,6 +30,25 @@ playBtnEl.addEventListener('click',()=>{
   }
 })
 
+prevBtnEl.addEventListener('click',()=>{
+  index--;
+  if(index<0){
+    index=songs.length-1; //ย้ายไปเพลงสุดท้าย
+  }
+  loadSongs(songs[index])
+  playSong()
+})
+
+nextBtnEl.addEventListener('click',()=>{
+  index++;
+  if(index>songs.length-1){
+    index=0;
+  }
+  loadSongs(songs[index])
+  playSong()
+})
+
+
 function pauseSong(){
   music_ContainerEl.classList.remove('play')
   playBtnEl.querySelector('i').classList.replace('fa-pause','fa-play');
