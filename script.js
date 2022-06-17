@@ -61,4 +61,15 @@ function playSong(){
   audioEl.play();
 }
 
+
+audioEl.addEventListener('timeupdate',updateProgress);
+
+function updateProgress(e){
+
+  const {duration , currentTime} = e.srcElement;
+  const progressPercent = (currentTime/duration)*100;
+  progressEl.style.width=`${progressPercent}%`
+
+}
+
 loadSongs(songs[index])
